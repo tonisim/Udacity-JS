@@ -5,7 +5,7 @@ function AddressBook() {
 AddressBook.prototype.getInitialContacts = function(cb){
     var self  = this;
 
-    selfTimeout(function () {
+    setTimeout(function () {
         self.initialComplete = true;
         if(cb) {
             return cb();

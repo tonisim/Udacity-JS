@@ -2,6 +2,8 @@ describe('Address Book', function () {
     var addressBook,
         thisContact;
 
+
+    //Koodi korrigeerimiseks on hea kasutada beforeEachi
     beforeEach(function () {
         addressBook = new AddressBook();
         thisContact = new Contact();
@@ -21,11 +23,18 @@ describe('Address Book', function () {
     });
 });
 
+//Seotud Fake apiga
+
 describe('Async Address Book', function () {
-    it('should grab initial contacts', function () {
-        var addressBook = new AddressBook();
-                        // meetod
-        addressBook.getInitialContacts();
+    var addressBook = new AddressBook();
+
+    beforeEach(function (done) {
+        addressBook.getInitialContacts(function (){
+            done();
+        });
+    });
+    it('should grab initial contacts', function (done) {
         expect(addressBook.initialComplete).toBe(true);
+        done();
     });
 });
