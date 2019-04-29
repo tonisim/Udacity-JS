@@ -1,7 +1,18 @@
 function AddressBook() {
     this.contacts = [];
 }
-// Tuli lisada, et saada tööle AddressBookSpec.js
+// fake API koostamine 
+AddressBook.prototype.getInitialContacts = function(cb){
+    var self  = this;
+
+    selfTimeout(function () {
+        self.initialComplete = true;
+        if(cb) {
+            return cb();
+        }
+    }, 3);
+}
+
 AddressBook.prototype.addContact = function (contact) {
     this.contacts.push(contact);
 };
