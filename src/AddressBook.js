@@ -1,7 +1,7 @@
 function AddressBook() {
     this.contacts = [];
 }
-// fake API koostamine 
+// fake API koostamine
 AddressBook.prototype.getInitialContacts = function(cb){
     var self  = this;
 
